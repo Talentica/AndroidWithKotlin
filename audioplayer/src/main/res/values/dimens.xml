@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="controls_row_height">60dp</dimen>
+    <dimen name="medium_margin">12dp</dimen>
+    <dimen name="large_margin">16dp</dimen>
+</resources>

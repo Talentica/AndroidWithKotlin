@@ -1,0 +1,1 @@
+include ':app', ':audioplayer', ':locationmanager', ':sqlitedatabase'
