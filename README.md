@@ -27,8 +27,8 @@ More to come in future
 ===================================================================
 Name | Demo                                                         
 --- | ---                                                          
-Default App | <img src="/gifs/navbar.gif" width="29%">
-Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="29%">
-Location | <img src="/gifs/location.gif" width="29%">
-Sqlite | <img src="/gifs/database.gif" width="29%">
-Video Streaming | <img src="/gifs/videostreaming.gif" width="29%">
+Default App | <img src="/gifs/navbar.gif" width="59%">
+Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="59%">
+Location | <img src="/gifs/location.gif" width="59%">
+Sqlite | <img src="/gifs/database.gif" width="59%">
+Video Streaming | <img src="/gifs/videostreaming.gif" width="59%">
