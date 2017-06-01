@@ -9,7 +9,7 @@ The project cntains the following apps:
 #### 4. sqlitedatabase: A simple sqlite database app with mock server which handles user(friend) search and logs the queries into local database. A good app to understand RxAndroid in kotlin.
 #### 5. videostreaming: A live RTSP video streaming app with custom media controls.
  
-More to come in future
+More to come in future :octocat:
 
 <img src="http://i.imgur.com/HzmmBvZ.jpg" />&nbsp;
 
