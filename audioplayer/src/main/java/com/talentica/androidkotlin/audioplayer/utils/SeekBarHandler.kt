@@ -44,7 +44,6 @@ class SeekBarHandler(val seekbar: SeekBar?, var mediaPlayer: MediaPlayer?, var i
             try {
                 Thread.sleep(200)
             } catch (e: InterruptedException) {
-                // TODO Auto-generated catch block
                 e.printStackTrace()
             }
 
