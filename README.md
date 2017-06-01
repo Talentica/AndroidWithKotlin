@@ -23,12 +23,12 @@ More to come in future
  * Android sdk plateform-toools 26.0.0 rc2
  
 
-Projects
+## Projects
 ===================================================================
 Name | Demo                                                         
 --- | ---                                                          
-Default App | <img src="/gifs/navbar.gif" width="39%">
-Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="39%">
-Location | <img src="/gifs/location.gif" width="39%">
-Sqlite | <img src="/gifs/database.gif" width="39%">
-Video Streaming | <img src="/gifs/videostreaming.gif" width="39%">
+Default App | <img src="/gifs/navbar.gif" width="29%">
+Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="29%">
+Location | <img src="/gifs/location.gif" width="29%">
+Sqlite | <img src="/gifs/database.gif" width="29%">
+Video Streaming | <img src="/gifs/videostreaming.gif" width="29%">
