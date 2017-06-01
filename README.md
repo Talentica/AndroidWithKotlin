@@ -24,17 +24,11 @@ More to come in future
  
 
 Projects
-===================================================
-Name | License 
---- | --- 
-
+===================================================================
+Name | Demo                                                         
+--- | ---                                                          
 Default App | <img src="/gifs/navbar.gif" width="49%">
-
 Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="49%">
-
 Location | <img src="/gifs/location.gif" width="49%">
-
 Sqlite | <img src="/gifs/database.gif" width="49%">
-
 Video Streaming | <img src="/gifs/videostreaming.gif" width="49%">
-
