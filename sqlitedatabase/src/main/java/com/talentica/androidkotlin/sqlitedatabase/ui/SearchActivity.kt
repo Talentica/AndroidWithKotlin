@@ -99,9 +99,6 @@ class SearchActivity : LoaderManager.LoaderCallbacks<Cursor>, AppCompatActivity(
         mNameObservable
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    val toast = Toast.makeText(this, "Friend not found, try john or alice", Toast.LENGTH_SHORT)
-                    toast.setGravity(Gravity.TOP, 0, 200)
-                    toast.show()
                     mApp.dbHelper.log("${it}")
                     mAdapter.changeCursor(mApp.dbHelper.getLogs())
                     mAdapter.notifyDataSetChanged()
@@ -139,7 +136,18 @@ class SearchActivity : LoaderManager.LoaderCallbacks<Cursor>, AppCompatActivity(
                 }
                 .subscribe {
                     Log.d(TAG, "Enabling add friend")
-                    addFriendButton?.setEnabled(it != null)
+                    if(it != null) {
+                        addFriendButton?.setEnabled(true)
+                        val toast = Toast.makeText(this, "Friend found", Toast.LENGTH_SHORT)
+                        toast.setGravity(Gravity.TOP, 0, 200)
+                        toast.show()
+                    } else {
+                        addFriendButton?.setEnabled(false)
+                        val toast = Toast.makeText(this, "Friend not found, try john or alice", Toast.LENGTH_SHORT)
+                        toast.setGravity(Gravity.TOP, 0, 200)
+                        toast.show()
+                    }
+
                     Log.d(TAG, "Hiding loading")
                     loading?.setVisibility(View.INVISIBLE)
                     mUser = it

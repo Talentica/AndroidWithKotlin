@@ -1,1 +1,1 @@
-include ':app', ':audioplayer', ':locationmanager', ':sqlitedatabase'
+include ':app', ':audioplayer', ':locationmanager', ':sqlitedatabase', ':videostreaming'
