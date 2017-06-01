@@ -134,7 +134,6 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, Media
     }
 
     override fun onError(mp: MediaPlayer?, what: Int, extra: Int): Boolean {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         return false
     }
 
@@ -152,10 +151,8 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, Media
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onStopTrackingTouch(seekBar: SeekBar?) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
