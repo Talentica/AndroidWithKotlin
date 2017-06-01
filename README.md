@@ -23,7 +23,7 @@ More to come in future
  * Android sdk plateform-toools 26.0.0 rc2
  
 
-## Projects
+Projects
 ===================================================================
 Name | Demo                                                         
 --- | ---                                                          
