@@ -2,12 +2,20 @@ package com.talentica.androidkotlin.customcamera.presenter.camera
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
+import android.hardware.Camera
+import android.hardware.camera2.CameraAccessException
+import android.hardware.camera2.CameraManager
+import android.os.Build
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.view.SurfaceHolder
+import android.widget.Toast
 import com.talentica.androidkotlin.customcamera.model.camera.CameraActivityModel
 import com.talentica.androidkotlin.customcamera.ui.camera.CameraActivityView
+
 
 class CameraActivityPresenterImpl constructor(val cameraActivityModel: CameraActivityModel)
         : CameraActivityPresenter {
@@ -15,6 +23,7 @@ class CameraActivityPresenterImpl constructor(val cameraActivityModel: CameraAct
     private val CAMERA_REQUEST_PERMISSION: Int = 123;
     private lateinit var cameraActivityView: CameraActivityView
     private lateinit var activity: Activity
+    private var isPermissionGranted = false
 
     override fun attach(activityView: CameraActivityView,
                         activity: Activity,
@@ -25,11 +34,43 @@ class CameraActivityPresenterImpl constructor(val cameraActivityModel: CameraAct
     }
 
     override fun resume() {
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
-            activity.requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_REQUEST_PERMISSION)
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestCameraPermission();
         } else {
+            isPermissionGranted = true
             startCameraComponents()
         }
+    }
+
+    private fun requestCameraPermission() {
+        // Here, thisActivity is the current activity
+        // Should we show an explanation?
+        if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.CAMERA)) {
+            // Show an explanation to the user *asynchronously* -- don't block
+            // this thread waiting for the user's response! After the user
+            // sees the explanation, try again to request the permission.
+        } else {
+            // No explanation needed, we can request the permission.
+            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.CAMERA),
+                    CAMERA_REQUEST_PERMISSION);
+            // MY_PERMISSIONS_REQUEST_CAMERA is an
+            // app-defined int constant. The callback method gets the
+            // result of the request.
+        }
+    }
+
+    override fun switchOnFlash() {
+        if (!isPermissionGranted ) {
+            return
+        }
+        cameraActivityModel.startFlash(activity)
+    }
+
+    override fun switchOffFlash() {
+        if (!isPermissionGranted ) {
+            return
+        }
+        cameraActivityModel.stopFlash(activity)
     }
 
     override fun pause() {
@@ -47,6 +88,7 @@ class CameraActivityPresenterImpl constructor(val cameraActivityModel: CameraAct
     override fun onRequestPermissionsResult(requestCode: Int, grantResults: IntArray) {
         if (requestCode == CAMERA_REQUEST_PERMISSION) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                isPermissionGranted = true
                 startCameraComponents()
             }
         }

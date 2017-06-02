@@ -31,7 +31,7 @@ class LandingActivity : SlowkaActivity<LandingActivityView>(), LandingActivityVi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentViewWithToolbar(R.layout.activity_landing)
+        setContentViewWithToolbar(R.layout.activity_landing, true)
 
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener {

@@ -3,7 +3,10 @@ package com.talentica.androidkotlin.customcamera.ui.camera
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.FrameLayout
+import android.widget.ImageButton
+import android.widget.TextView
 import butterknife.bindView
 import com.talentica.androidkotlin.customcamera.presenter.ActivityPresenter
 import com.talentica.androidkotlin.customcamera.R
@@ -16,7 +19,7 @@ import com.talentica.androidkotlin.customcamera.ui.SlowkaActivity
 import javax.inject.Inject
 
 class CameraActivity : SlowkaActivity<CameraActivityView>(), CameraActivityView ,
-        HasComponent<CameraActivityComponent?> {
+        HasComponent<CameraActivityComponent?>, View.OnClickListener {
 
     @Inject
     protected lateinit var presenter: CameraActivityPresenter
@@ -25,12 +28,15 @@ class CameraActivity : SlowkaActivity<CameraActivityView>(), CameraActivityView 
         get() = presenter
 
     private val cameraContainer: FrameLayout by bindView(R.id.cameraContainer)
+    private val flashButton: ImageButton by bindView(R.id.imb_flash)
+    private val flashStatus: TextView by bindView(R.id.tv_flash_status)
     private var cameraView: CameraView? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentViewWithToolbar(R.layout.activity_words_camera_view)
+        setContentViewWithToolbar(R.layout.activity_words_camera_view, false)
         setDaggerComponent(CameraActivityComponentAssembler.assemble(application))
+        flashButton.setOnClickListener(this)
     }
 
     private fun setDaggerComponent(component: CameraActivityComponent) {
@@ -69,10 +75,21 @@ class CameraActivity : SlowkaActivity<CameraActivityView>(), CameraActivityView 
         cameraView = null
     }
 
+    override fun onClick(v: View?) {
+        if (v?.id == flashButton.id) {
+            if (flashStatus.text == "OFF") {
+                flashStatus.text = "ON"
+                presenter.switchOnFlash()
+            } else {
+                flashStatus.text = "OFF"
+                presenter.switchOffFlash()
+            }
+        }
+    }
+
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<String>,
                                             grantResults: IntArray) {
-
         presenter.onRequestPermissionsResult(requestCode, grantResults)
     }
 

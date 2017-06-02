@@ -2,8 +2,13 @@
     package="com.talentica.androidkotlin.customcamera">
 
     <uses-permission android:name="android.permission.CAMERA" />
-
-    <permission android:name="android.permission.FLASHLIGHT" />
+    <!-- Allows access to the flashlight -->
+    <permission
+        android:name="android.permission.FLASHLIGHT"
+        android:description="@string/desc_flash"
+        android:label="@string/label_flash"
+        android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+        android:protectionLevel="normal" />
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature

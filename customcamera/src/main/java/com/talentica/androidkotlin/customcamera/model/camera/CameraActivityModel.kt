@@ -1,5 +1,6 @@
 package com.talentica.androidkotlin.customcamera.model.camera
 
+import android.app.Activity
 import android.view.SurfaceHolder
 import com.talentica.androidkotlin.customcamera.presenter.camera.CameraActivityPresenterImpl
 import rx.Observable
@@ -41,5 +42,17 @@ class CameraActivityModel constructor(val cameraAdapter: CameraAdapter) {
 
     fun cameraSurfaceRefresh() {
         observeFrames(cameraAdapter.start())
+    }
+
+    fun startFlash(actvity:Activity) {
+        cameraAdapter.switchOnFlash(actvity)
+    }
+
+    fun stopFlash(actvity:Activity) {
+        cameraAdapter.switchOffFlash(actvity)
+    }
+
+    fun clickPhoto() {
+//        cameraAdapter.
     }
 }

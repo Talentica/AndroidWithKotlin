@@ -17,15 +17,17 @@ abstract class SlowkaActivity <T>: AppCompatActivity() {
     protected val toolbar: Toolbar by bindView(R.id.toolbar)
     protected abstract val activityPresenter: ActivityPresenter<T>
 
-    internal fun setContentViewWithToolbar(layoutResID: Int) {
+    internal fun setContentViewWithToolbar(layoutResID: Int, isToolbarEnabled:Boolean) {
         super.setContentView(layoutResID)
-        setupToolbar()
+        if (isToolbarEnabled) {
+            setupToolbar()
+        }
+
         setupStatusBarForLolipopDevices()
     }
 
     open internal fun setupToolbar() {
         setSupportActionBar(toolbar)
-//        supportActionBar.setIcon(R.drawable.)
         supportActionBar?.title = null
     }
 

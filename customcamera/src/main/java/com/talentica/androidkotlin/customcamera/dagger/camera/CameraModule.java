@@ -13,7 +13,6 @@ public class CameraModule {
     @CameraActivityScope
     @Provides
     CameraActivityPresenter provideCameraActivityPresenter(CameraActivityModel cameraActivityModel) {
-
         return new CameraActivityPresenterImpl(
                 cameraActivityModel
         );
@@ -22,7 +21,6 @@ public class CameraModule {
     @CameraActivityScope
     @Provides
     CameraActivityModel provideCameraActivityModel(CameraAdapter cameraAdapter) {
-
         return new CameraActivityModel(
                 cameraAdapter
         );
@@ -31,7 +29,6 @@ public class CameraModule {
     @CameraActivityScope
     @Provides
     CameraAdapter provideCameraAdapter() {
-
         return new CameraAdapter();
     }
 }
