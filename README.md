@@ -1,7 +1,7 @@
 # AndroidWithKotlin [![Build Status](https://travis-ci.org/Talentica/AndroidWithKotlin.svg?branch=master)](https://travis-ci.org/Talentica/AndroidWithKotlin) [![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html) [![GitHub version](https://badge.fury.io/gh/Talentica%2FAndroidWithKotlin.svg)](https://badge.fury.io/gh/Talentica%2FAndroidWithKotlin) [![Issue Count](https://codeclimate.com/github/Talentica/AndroidWithKotlin/badges/issue_count.svg)](https://codeclimate.com/github/Talentica/AndroidWithKotlin)
 
 These are android samples projects which are written in kotlin.
-The project cntains the following apps:
+The project contains the following apps:
 
 #### 1. app(default) : Simple Navigation drawer layout to start with a floating button. 
 #### 2. audioplayer: An audio player app which plays mp3 file and custom seek bar to seek.  
