@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/audioplayer" />
+            <option value="$PROJECT_DIR$/customcamera" />
             <option value="$PROJECT_DIR$/locationmanager" />
             <option value="$PROJECT_DIR$/sqlitedatabase" />
             <option value="$PROJECT_DIR$/videostreaming" />

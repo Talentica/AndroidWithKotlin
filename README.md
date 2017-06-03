@@ -7,7 +7,8 @@ The project contains the following apps:
 #### 2. audioplayer: An audio player app which plays mp3 file and custom seek bar to seek.  
 #### 3. locationmanager: An on-demand location fetching app which uses google's latest fused location provider.
 #### 4. sqlitedatabase: A simple sqlite database app with mock server which handles user(friend) search and logs the queries into local database. A good app to understand RxAndroid in kotlin.
-#### 5. videostreaming: A live RTSP video streaming app with custom media controls.
+#### 5. videostreaming: A live RTSP video streaming app with custom media controls.(Better run this app on physical device)
+#### 6. customcamera: This is a MVP pattern, custom camera app with flash support. The home screen is a gridview which shows clicked photos. Dagger 2 implementation added.
  
 More to come in future :octocat: :star2:
 
@@ -32,3 +33,4 @@ Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="59%">
 Location | <img src="/gifs/location.gif" width="59%">
 Sqlite | <img src="/gifs/database.gif" width="59%">
 Video Streaming | <img src="/gifs/videostreaming.gif" width="59%">
+Custom Camera | <img src="/gifs/customcamera.gif" width="59%">

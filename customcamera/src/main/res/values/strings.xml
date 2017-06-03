@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CustomCamera</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_landing">LandingActivity</string>
+
+    <string name="label_flash">Flash light required</string>
+    <string name="desc_flash">Please provide permission to use flash light</string>
+</resources>
