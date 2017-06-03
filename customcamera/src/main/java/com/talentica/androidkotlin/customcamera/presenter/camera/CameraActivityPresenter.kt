@@ -12,4 +12,5 @@ interface CameraActivityPresenter : ActivityPresenter<CameraActivityView> {
     fun onRequestPermissionsResult(requestCode: Int, grantResults: IntArray)
     fun switchOnFlash()
     fun switchOffFlash()
+    fun clickPhoto()
 }

@@ -1,17 +1,24 @@
 package com.talentica.androidkotlin.customcamera.model.camera
 
-import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Rect
 import android.hardware.Camera
 import android.os.Handler
 import android.view.SurfaceHolder
-import android.widget.Toast
-import com.talentica.androidkotlin.customcamera.presenter.camera.Ratio
+import com.talentica.androidkotlin.customcamera.callbacks.PhotoClickedCallback
+import com.talentica.androidkotlin.customcamera.utils.Ratio
+import com.talentica.androidkotlin.customcamera.utils.Utils
 import rx.Observable
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
-class CameraAdapter constructor() {
+
+class CameraAdapter constructor() : Camera.PictureCallback {
 
     companion object {
         private val ROTATION_DEGREE = 90
@@ -37,6 +44,7 @@ class CameraAdapter constructor() {
     private val camera: Camera
         get() = cameraHandle?:throw AssertionError("Camera was not initialized correctly")
     private var cameraHandle: Camera? = null
+    private var photoCallback:PhotoClickedCallback? = null
 
     fun start(): Observable<ByteArray> {
         if (!initialized) {
@@ -46,43 +54,6 @@ class CameraAdapter constructor() {
         active = true
         refreshPreviewSizeRect()
         return getObservableOnCameraFrames()
-    }
-
-    fun switchOnFlash(activity:Activity) {
-        if (!hasFlash()) {
-            return
-        }
-        try {
-            if (activity.getPackageManager().hasSystemFeature(
-                    PackageManager.FEATURE_CAMERA_FLASH)) {
-                val p = camera.getParameters()
-                p.flashMode = Camera.Parameters.FLASH_MODE_TORCH
-                camera.setParameters(p)
-//                camera.startPreview()
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(activity, "Exception flashLightOn()",
-                    Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    fun switchOffFlash(activity:Activity) {
-        if (!hasFlash()) {
-            return
-        }
-        try {
-            if (activity.getPackageManager().hasSystemFeature(
-                    PackageManager.FEATURE_CAMERA_FLASH)) {
-                val p = camera.getParameters()
-                p.flashMode = Camera.Parameters.FLASH_MODE_OFF
-                camera.setParameters(p)
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Toast.makeText(activity, "Exception flashLightOff",
-                    Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun getObservableOnCameraFrames(): Observable<ByteArray> {
@@ -108,6 +79,41 @@ class CameraAdapter constructor() {
             initialized = false
             tearDownCamera()
         }
+    }
+
+    fun takePicture(photoCallback: PhotoClickedCallback) {
+        this.photoCallback = photoCallback
+        camera.takePicture(null, null, this)
+    }
+
+    override fun onPictureTaken(data: ByteArray?, camera: Camera?) {
+        val pictureFile = getOutputMediaFile() ?: return
+        try {
+            val fos = FileOutputStream(pictureFile)
+            fos.write(data)
+            fos.close()
+        } catch (e: FileNotFoundException) {
+            photoCallback?.photoClickFilure()
+            e.printStackTrace()
+            return
+        } catch (e: IOException) {
+            photoCallback?.photoClickFilure()
+            e.printStackTrace()
+            return
+        }
+        photoCallback?.photoClickSuccess()
+    }
+
+    private fun getOutputMediaFile(): File? {
+        val mediaStorageDir = Utils().checkAndMakeDir()
+        // Create a media file name
+        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss")
+                .format(Date())
+        val mediaFile: File
+        mediaFile = File(mediaStorageDir?.getPath() + File.separator
+                + "IMG_" + timeStamp + ".jpg")
+
+        return mediaFile
     }
 
     private fun tearDownCamera() {

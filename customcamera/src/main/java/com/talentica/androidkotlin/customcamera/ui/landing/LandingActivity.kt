@@ -6,19 +6,29 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
-import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
+import android.widget.GridView
+import android.widget.TextView
+import android.widget.Toast
 import butterknife.bindView
-import com.talentica.androidkotlin.customcamera.presenter.ActivityPresenter
 import com.talentica.androidkotlin.customcamera.R
+import com.talentica.androidkotlin.customcamera.adapter.landing.LandingGalleryAdapter
 import com.talentica.androidkotlin.customcamera.dagger.HasComponent
 import com.talentica.androidkotlin.customcamera.dagger.landing.LandingActivityComponent
 import com.talentica.androidkotlin.customcamera.dagger.landing.LandingActivityComponentAssembler
+import com.talentica.androidkotlin.customcamera.presenter.ActivityPresenter
 import com.talentica.androidkotlin.customcamera.presenter.landing.LandingActivityPresenter
 import com.talentica.androidkotlin.customcamera.ui.SlowkaActivity
 import com.talentica.androidkotlin.customcamera.ui.camera.CameraActivity
 import javax.inject.Inject
+import android.content.Intent
+import android.net.Uri
 
-class LandingActivity : SlowkaActivity<LandingActivityView>(), LandingActivityView, HasComponent<LandingActivityComponent?> {
+
+class LandingActivity : SlowkaActivity<LandingActivityView>(), LandingActivityView,
+        HasComponent<LandingActivityComponent?>, AdapterView.OnItemClickListener {
 
     @Inject
     protected lateinit var presenter: LandingActivityPresenter
@@ -27,6 +37,8 @@ class LandingActivity : SlowkaActivity<LandingActivityView>(), LandingActivityVi
         get() = presenter
 
     val navigationView: NavigationView by bindView(R.id.nav_view)
+    val gridView: GridView by bindView(R.id.gridview)
+    val emptyView: TextView by bindView(R.id.emptyview)
     val drawer: DrawerLayout by bindView(R.id.drawer_layout)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,19 +50,40 @@ class LandingActivity : SlowkaActivity<LandingActivityView>(), LandingActivityVi
             startActivity(CameraActivity.createIntent(this))
         }
 
-        val drawer = findViewById(R.id.drawer_layout) as DrawerLayout
         val toggle = ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer.setDrawerListener(toggle)
         toggle.syncState()
+        gridView.emptyView = emptyView
 
         setDaggerComponent(LandingActivityComponentAssembler.assemble(application))
+
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         attachPresenter(this, this, savedInstanceState)
         navigationView.setNavigationItemSelectedListener(presenter)
+    }
+
+    override fun setAdapter(adapter: LandingGalleryAdapter) {
+        gridView.setAdapter(adapter)
+        gridView.setOnItemClickListener(this)
+    }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        presenter.lauchPhotoPreview(position)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.resume()
+        presenter.addListOfPicsToAdapter(gridView)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        presenter.onRequestPermissionsResult(requestCode, grantResults)
     }
 
     private fun setDaggerComponent(component: LandingActivityComponent) {
@@ -61,11 +94,6 @@ class LandingActivity : SlowkaActivity<LandingActivityView>(), LandingActivityVi
     override fun onBackPressed() {
         closeDrawer()
         super.onBackPressed()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.landing, menu)
-        return true
     }
 
     override fun closeDrawer() {

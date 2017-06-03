@@ -3,18 +3,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Test-Camera" />
+            android:title="Gallery" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Test-Share" />
-        </menu>
-    </item>
 
 </menu>

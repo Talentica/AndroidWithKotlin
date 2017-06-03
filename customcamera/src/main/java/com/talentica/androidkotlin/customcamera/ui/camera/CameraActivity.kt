@@ -14,7 +14,7 @@ import com.talentica.androidkotlin.customcamera.dagger.HasComponent
 import com.talentica.androidkotlin.customcamera.dagger.camera.CameraActivityComponent
 import com.talentica.androidkotlin.customcamera.dagger.camera.CameraActivityComponentAssembler
 import com.talentica.androidkotlin.customcamera.presenter.camera.CameraActivityPresenter
-import com.talentica.androidkotlin.customcamera.presenter.camera.Ratio
+import com.talentica.androidkotlin.customcamera.utils.Ratio
 import com.talentica.androidkotlin.customcamera.ui.SlowkaActivity
 import javax.inject.Inject
 
@@ -29,6 +29,7 @@ class CameraActivity : SlowkaActivity<CameraActivityView>(), CameraActivityView 
 
     private val cameraContainer: FrameLayout by bindView(R.id.cameraContainer)
     private val flashButton: ImageButton by bindView(R.id.imb_flash)
+    private val clickButton: ImageButton by bindView(R.id.imb_click)
     private val flashStatus: TextView by bindView(R.id.tv_flash_status)
     private var cameraView: CameraView? = null;
 
@@ -37,6 +38,7 @@ class CameraActivity : SlowkaActivity<CameraActivityView>(), CameraActivityView 
         setContentViewWithToolbar(R.layout.activity_words_camera_view, false)
         setDaggerComponent(CameraActivityComponentAssembler.assemble(application))
         flashButton.setOnClickListener(this)
+        clickButton.setOnClickListener(this)
     }
 
     private fun setDaggerComponent(component: CameraActivityComponent) {
@@ -84,12 +86,12 @@ class CameraActivity : SlowkaActivity<CameraActivityView>(), CameraActivityView 
                 flashStatus.text = "OFF"
                 presenter.switchOffFlash()
             }
+        } else if (v?.id == clickButton.id) {
+            presenter.clickPhoto()
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int,
-                                            permissions: Array<String>,
-                                            grantResults: IntArray) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         presenter.onRequestPermissionsResult(requestCode, grantResults)
     }
 

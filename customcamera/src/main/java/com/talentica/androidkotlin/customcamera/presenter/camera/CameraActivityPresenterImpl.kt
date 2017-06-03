@@ -2,23 +2,19 @@ package com.talentica.androidkotlin.customcamera.presenter.camera
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context
 import android.content.pm.PackageManager
-import android.hardware.Camera
-import android.hardware.camera2.CameraAccessException
-import android.hardware.camera2.CameraManager
-import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.view.SurfaceHolder
 import android.widget.Toast
+import com.talentica.androidkotlin.customcamera.callbacks.PhotoClickedCallback
 import com.talentica.androidkotlin.customcamera.model.camera.CameraActivityModel
 import com.talentica.androidkotlin.customcamera.ui.camera.CameraActivityView
+import com.talentica.androidkotlin.customcamera.utils.Ratio
 
 
-class CameraActivityPresenterImpl constructor(val cameraActivityModel: CameraActivityModel)
-        : CameraActivityPresenter {
+class CameraActivityPresenterImpl constructor(val cameraActivityModel: CameraActivityModel) : CameraActivityPresenter, PhotoClickedCallback {
 
     private val CAMERA_REQUEST_PERMISSION: Int = 123;
     private lateinit var cameraActivityView: CameraActivityView
@@ -63,14 +59,27 @@ class CameraActivityPresenterImpl constructor(val cameraActivityModel: CameraAct
         if (!isPermissionGranted ) {
             return
         }
-        cameraActivityModel.startFlash(activity)
+        cameraActivityModel.toggleFlash()
     }
 
     override fun switchOffFlash() {
         if (!isPermissionGranted ) {
             return
         }
-        cameraActivityModel.stopFlash(activity)
+        cameraActivityModel.toggleFlash()
+    }
+
+    override fun clickPhoto() {
+        cameraActivityModel.clickPhoto(this)
+    }
+
+    override fun photoClickSuccess() {
+        Toast.makeText(activity, "Refreshing Gallery", Toast.LENGTH_SHORT).show()
+        activity.finish()
+    }
+
+    override fun photoClickFilure() {
+        Toast.makeText(activity, "Error Occured", Toast.LENGTH_SHORT).show()
     }
 
     override fun pause() {
@@ -89,7 +98,8 @@ class CameraActivityPresenterImpl constructor(val cameraActivityModel: CameraAct
         if (requestCode == CAMERA_REQUEST_PERMISSION) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 isPermissionGranted = true
-                startCameraComponents()
+                //works as refresh for camera view
+                activity.recreate()
             }
         }
     }

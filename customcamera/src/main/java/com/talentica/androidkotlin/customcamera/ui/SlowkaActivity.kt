@@ -28,7 +28,7 @@ abstract class SlowkaActivity <T>: AppCompatActivity() {
 
     open internal fun setupToolbar() {
         setSupportActionBar(toolbar)
-        supportActionBar?.title = null
+//        supportActionBar?.title = null
     }
 
     private fun setupStatusBarForLolipopDevices() {
