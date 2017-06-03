@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2017, The Android Open Source Project
   ~
@@ -15,11 +16,6 @@
   -->
 
 <resources>
-    <string name="app_name">Persistence sample</string>
-    <string name="no_comments">No comments</string>
-    <string name="loading_comments">Loading comments...</string>
-    <string name="loading_products">Loading products...</string>
-    <string name="cd_products_list">Products list</string>
-    <string name="cd_comments_list">Comments list</string>
-    <string name="cd_product_name">Name of the product</string>
+    <string name="product_price">Price: $%d</string>
+    <dimen name="product_item_min_height">100dp</dimen>
 </resources>

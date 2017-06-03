@@ -3,7 +3,7 @@
 These are android samples projects which are written in kotlin.
 The project contains the following apps:
 
-#### 1. app(default) : Simple Navigation drawer layout to start with a floating button. 
+#### 1. app(default) : Google IO 2017 Android Architecture Components Sample: Room, ViewModel(MVVM), LiveData and Lifecycle.  
 #### 2. audioplayer: An audio player app which plays mp3 file and custom seek bar to seek.  
 #### 3. locationmanager: An on-demand location fetching app which uses google's latest fused location provider.
 #### 4. sqlitedatabase: A simple sqlite database app with mock server which handles user(friend) search and logs the queries into local database. A good app to understand RxAndroid in kotlin.
@@ -17,7 +17,8 @@ More to come in future :octocat: :star2:
 
 ## Minimum Requirements
 
- * Android Studio 3.0
+ * Android Studio 3.0 Canery 3
+ * Kotlin compiler and runtime version 1.1.2-4
  * Android O
  * Android sdk tools 26.0.2
  * Android sdk build-tools 26 rc2
@@ -28,7 +29,7 @@ Projects
 ===================================================================
 Name | Demo                                                         
 --- | ---                                                          
-Default App | <img src="/gifs/navbar.gif" width="59%">
+Google io17 Architecture ViewModels Livedata Sample | <img src="/gifs/googleio2017.gif" width="59%">
 Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="59%">
 Location | <img src="/gifs/location.gif" width="59%">
 Sqlite | <img src="/gifs/database.gif" width="59%">
