@@ -9,6 +9,7 @@ The project contains the following apps:
 #### 4. sqlitedatabase: A simple sqlite database app with mock server which handles user(friend) search and logs the queries into local database. A good app to understand RxAndroid in kotlin.
 #### 5. videostreaming: A live RTSP video streaming app with custom media controls.(Better run this app on physical device)
 #### 6. customcamera: This is a MVP pattern, custom camera app with flash support. The home screen is a gridview which shows clicked photos. Dagger 2 implementation added.
+#### 7. o_notifications: This is a MVP pattern, android-O notifications. The home screen provides simple way to create notification channels and notifications. By default there are 2 notification groups “Personal” and “Business”.
  
 More to come in future :octocat: :star2:
 
@@ -35,3 +36,4 @@ Location | <img src="/gifs/location.gif" width="59%">
 Sqlite | <img src="/gifs/database.gif" width="59%">
 Video Streaming | <img src="/gifs/videostreaming.gif" width="59%">
 Custom Camera | <img src="/gifs/customcamera.gif" width="59%">
+Android-O Notifications | <img src="/gifs/o_notification_003.gif" width="59%">
