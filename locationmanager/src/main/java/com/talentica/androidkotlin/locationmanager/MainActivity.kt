@@ -23,6 +23,7 @@ import com.google.android.gms.location.*
 import java.text.DateFormat
 import java.util.*
 
+//If using emulator then send the location from Emulator's Extended Controls. :)
 class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener,
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
     private var tv_city: TextView? = null;
 
     //Any random number you can take
-    public val REQUEST_PERMISSION_LOCATION: Int = 10;
+    val REQUEST_PERMISSION_LOCATION: Int = 10;
 
     /**
      * Constant used in the location settings dialog.
@@ -208,7 +209,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         mLocationRequest?.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
     }
 
-
     //step 3
     protected fun buildLocationSettingsRequest() {
         val builder = LocationSettingsRequest.Builder();
@@ -216,9 +216,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         mLocationSettingsRequest = builder.build();
     }
 
-
     //step 4
-
     protected fun checkLocationSettings() {
         val result = LocationServices.SettingsApi.checkLocationSettings(
                 mGoogleApiClient,
@@ -226,7 +224,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         );
         result.setResultCallback(this);
     }
-
 
     /**
      * Requests location updates from the FusedLocationApi.
@@ -272,6 +269,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         }
     }
 
+    //If using emulator then send the location from Emulator's Extended Controls. :)
     override fun onConnected(p0: Bundle?) {
         Log.i(TAG, "Connected to GoogleApiClient");
 
@@ -300,6 +298,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         Log.i(TAG, "Connection suspended");
     }
 
+    //If using emulator then send the location from Emulator's Extended Controls. :)
     override fun onLocationChanged(location: Location?) {
         mCurrentLocation = location;
         mLastUpdateTime = DateFormat.getTimeInstance().format(Date());
@@ -315,15 +314,17 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
 
     }
 
+    //If using emulator then send the location from Emulator's Extended Controls. :)
     override fun onResult(locationSettingsResult: LocationSettingsResult) {
         val status: Status = locationSettingsResult.getStatus();
         when (status.getStatusCode()) {
             LocationSettingsStatusCodes.SUCCESS -> {
                 Log.i(TAG, "All location settings are satisfied.");
-
+                //If using emulator then send the location from Emulator's Extended Controls. :)
                 Toast.makeText(this, "Location is already on.", Toast.LENGTH_SHORT).show();
                 startLocationUpdates();
             }
+
             LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
                 Log.i(TAG, "Location settings are not satisfied. Show the user a dialog to" +
                         "upgrade location settings ");

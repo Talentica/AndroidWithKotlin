@@ -1,4 +1,4 @@
-# AndroidWithKotlin [![Build Status](https://travis-ci.org/Talentica/AndroidWithKotlin.svg?branch=master)](https://travis-ci.org/Talentica/AndroidWithKotlin) [![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html) [![GitHub version](https://badge.fury.io/gh/Talentica%2FAndroidWithKotlin.svg)](https://badge.fury.io/gh/Talentica%2FAndroidWithKotlin) [![Issue Count](https://codeclimate.com/github/Talentica/AndroidWithKotlin/badges/issue_count.svg)](https://codeclimate.com/github/Talentica/AndroidWithKotlin)
+# AndroidWithKotlin [![Build Status](https://travis-ci.org/Talentica/AndroidWithKotlin.svg?branch=master)](https://travis-ci.org/Talentica/AndroidWithKotlin) [![Apache 2.0 License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html) [![GitHub version](https://badge.fury.io/gh/Talentica%2FAndroidWithKotlin.svg)](https://badge.fury.io/gh/Talentica%2FAndroidWithKotlin) [![Issue Count](https://codeclimate.com/github/Talentica/AndroidWithKotlin/badges/issue_count.svg)](https://codeclimate.com/github/Talentica/AndroidWithKotlin) [![Kotlin](https://img.shields.io/badge/Kotlin-1.1.2-blue.svg)](http://kotlinlang.org)
 
 These are android samples projects which are written in kotlin.
 The project contains the following apps:
@@ -31,7 +31,7 @@ Name | Demo
 --- | ---                                                          
 Google io17 Architecture ViewModels Livedata Sample | <img src="/gifs/googleio2017.gif" width="59%">
 Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="59%">
-Location | <img src="/gifs/location.gif" width="59%">
+Location (If using emulator then send the location from Extended Controls of Emulator. :)) | <img src="/gifs/location.gif" width="59%">
 Sqlite | <img src="/gifs/database.gif" width="59%">
-Video Streaming | <img src="/gifs/videostreaming.gif" width="59%">
+Video Streaming (Always use device to run this App) | <img src="/gifs/videostreaming.gif" width="59%">
 Custom Camera | <img src="/gifs/customcamera.gif" width="59%">
