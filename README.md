@@ -19,9 +19,9 @@ More to come in future :octocat: :star2:
 
  * Android Studio 3.0 Canery 3
  * Kotlin compiler and runtime version 1.1.2-4
- * Android O
+ * Android api level 25
  * Android sdk tools 26.0.2
- * Android sdk build-tools 26 rc2
+ * Android sdk build-tools 25.0.3
  * Android sdk plateform-toools 26.0.0 rc2
  
 
