@@ -9,6 +9,7 @@ android:
   - tools
   - platform-tools
   - build-tools-26.0.0 rc2
+  - build-tools-25.0.3
   - android-25
   - extra-android-support
   - extra-google-google_play_services
@@ -16,6 +17,7 @@ android:
   - extra-google-m2repository
   - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
   licenses:
+  - 'android-sdk-preview-license-.+'
   - 'android-sdk-license-.+'
   - '.+'
 script:
