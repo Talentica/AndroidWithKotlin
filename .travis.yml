@@ -16,6 +16,7 @@ android:
   - extra-google-m2repository
   - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
   licenses:
+  - 'android-sdk-license-.+'
   - '.+'
 script:
   - ./gradlew build

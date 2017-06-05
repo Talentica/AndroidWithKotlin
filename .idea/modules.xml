@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/audioplayer/audioplayer.iml" filepath="$PROJECT_DIR$/audioplayer/audioplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/customcamera/customcamera.iml" filepath="$PROJECT_DIR$/customcamera/customcamera.iml" />
       <module fileurl="file://$PROJECT_DIR$/locationmanager/locationmanager.iml" filepath="$PROJECT_DIR$/locationmanager/locationmanager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/o_notifications/o_notifications.iml" filepath="$PROJECT_DIR$/o_notifications/o_notifications.iml" />
       <module fileurl="file://$PROJECT_DIR$/sqlitedatabase/sqlitedatabase.iml" filepath="$PROJECT_DIR$/sqlitedatabase/sqlitedatabase.iml" />
       <module fileurl="file://$PROJECT_DIR$/videostreaming/videostreaming.iml" filepath="$PROJECT_DIR$/videostreaming/videostreaming.iml" />
     </modules>
