@@ -3,14 +3,14 @@ apply plugin: 'kotlin-android'
 
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 'android-O'
+    buildToolsVersion "26.0.0 rc2"
 
 
     defaultConfig {
         applicationId "com.talentica.androidkotlin.locationmanager"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 'O'
         versionCode 1
         versionName "1.0"
 
@@ -31,7 +31,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.0.0-beta1'
     testCompile 'junit:junit:4.12'
     compile 'com.google.android.gms:play-services-location:10.2.6'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"

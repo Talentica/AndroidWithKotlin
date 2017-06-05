@@ -50,18 +50,18 @@ class MainActivity : AppCompatActivity(), NotificationContract.View, colorDialog
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        channelId = findViewById(R.id.et_channel_id) as EditText
-        channelImportance = findViewById(R.id.spinner_channel_importance) as Spinner
-        notificationColorPicker = findViewById(R.id.img_pick_color) as ImageView
-        isPersonal = findViewById(R.id.chk_channel_group) as CheckBox
+        channelId = findViewById<EditText>(R.id.et_channel_id)
+        channelImportance = findViewById<Spinner>(R.id.spinner_channel_importance)
+        notificationColorPicker = findViewById<ImageView>(R.id.img_pick_color)
+        isPersonal = findViewById<CheckBox>(R.id.chk_channel_group)
 
-        channelCreate = findViewById(R.id.btn_create_channel) as Button
+        channelCreate = findViewById<Button>(R.id.btn_create_channel)
 
-        notificationTitle = findViewById(R.id.et_title) as EditText
-        notificationBody = findViewById(R.id.et_body) as EditText
-        notificationChannelId = findViewById(R.id.et_channel) as EditText
-        isOngoing = findViewById(R.id.chk_ongoing_notification) as CheckBox
-        notificationCreate = findViewById(R.id.btn_create_notification) as Button
+        notificationTitle = findViewById<EditText>(R.id.et_title)
+        notificationBody = findViewById<EditText>(R.id.et_body)
+        notificationChannelId = findViewById<EditText>(R.id.et_channel)
+        isOngoing = findViewById<CheckBox>(R.id.chk_ongoing_notification)
+        notificationCreate = findViewById<Button>(R.id.btn_create_notification)
 
         channelImportance?.setSelection(3)
 

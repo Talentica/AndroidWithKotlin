@@ -14,14 +14,13 @@ import kotlin.concurrent.fixedRateTimer
  * Created by suyashg on 01/06/17.
  */
 
-
+//Always device to run this App
 class MainActivity : AppCompatActivity(), MediaPlayer.OnCompletionListener,
         MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener, SeekBar.OnSeekBarChangeListener,
         View.OnClickListener {
 
     private val HLS_STREAMING_SAMPLE = "rtsp://mpv.cdn3.bigCDN.com:554/bigCDN/_definst_/mp4:bigbuckbunnyiphone_400.mp4"
     private var sampleVideoView: VideoView? = null
-    private var progressDialog: ProgressDialog? = null
     private var seekBar: SeekBar? = null
     private var playPauseButton: ImageView? = null
     private var stopButton: ImageView? = null
@@ -29,29 +28,27 @@ class MainActivity : AppCompatActivity(), MediaPlayer.OnCompletionListener,
     private var currentPosition: Int = 0
     private var isRunning = false
 
+    //Always device to run this App
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        sampleVideoView = findViewById(R.id.videoView) as VideoView
+        sampleVideoView = findViewById<VideoView>(R.id.videoView)
         sampleVideoView?.setVideoURI(Uri.parse(HLS_STREAMING_SAMPLE))
 
-        playPauseButton = findViewById(R.id.playPauseButton) as ImageView
+        playPauseButton = findViewById<ImageView>(R.id.playPauseButton)
         playPauseButton?.setOnClickListener(this)
 
-        stopButton = findViewById(R.id.stopButton) as ImageView
+        stopButton = findViewById<ImageView>(R.id.stopButton)
         stopButton?.setOnClickListener(this)
 
-        seekBar = findViewById(R.id.seekBar) as SeekBar
+        seekBar = findViewById<SeekBar>(R.id.seekBar)
         seekBar?.setOnSeekBarChangeListener(this)
 
-        runningTime = findViewById(R.id.runningTime) as TextView
+        runningTime = findViewById<TextView>(R.id.runningTime)
         runningTime?.setText("00:00")
 
-        progressDialog = ProgressDialog(this)
-        progressDialog?.setTitle("Preparing Video")
-        progressDialog?.setMessage("Buffering...")
-        progressDialog?.show()
+        Toast.makeText(this, "Buffering...Please wait", Toast.LENGTH_LONG).show()
 
         //Add the listeners
         sampleVideoView?.setOnCompletionListener(this)
@@ -69,7 +66,6 @@ class MainActivity : AppCompatActivity(), MediaPlayer.OnCompletionListener,
     }
 
     override fun onPrepared(mp: MediaPlayer?) {
-        progressDialog?.dismiss()
         seekBar?.setMax(sampleVideoView?.getDuration()!!)
         sampleVideoView?.start()
 

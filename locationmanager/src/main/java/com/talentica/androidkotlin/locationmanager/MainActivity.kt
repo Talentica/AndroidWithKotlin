@@ -23,6 +23,7 @@ import com.google.android.gms.location.*
 import java.text.DateFormat
 import java.util.*
 
+//If using emulator then send the location from Emulator's Extended Controls. :)
 class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener,
@@ -147,14 +148,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
-        btn_location = findViewById(R.id.btn_detect_fused_location) as Button
+        btn_location = findViewById<Button>(R.id.btn_detect_fused_location)
         //total six textviews
-        txt_location = findViewById(R.id.txt_location) as TextView
-        mLatitudeTextView = findViewById(R.id.mLatitudeTextView) as TextView
-        mLongitudeTextView = findViewById(R.id.mLongitudeTextView) as TextView
-        mLastUpdateTimeTextView = findViewById(R.id.mLastUpdateTimeTextView) as TextView
-        tv_city = findViewById(R.id.tv_city) as TextView
-        tv_pincode = findViewById(R.id.tv_pincode) as TextView
+        txt_location = findViewById<TextView>(R.id.txt_location)
+        mLatitudeTextView = findViewById<TextView>(R.id.mLatitudeTextView)
+        mLongitudeTextView = findViewById<TextView>(R.id.mLongitudeTextView)
+        mLastUpdateTimeTextView = findViewById<TextView>(R.id.mLastUpdateTimeTextView)
+        tv_city = findViewById<TextView>(R.id.tv_city)
+        tv_pincode = findViewById<TextView>(R.id.tv_pincode)
 
         // Set labels.
         mLatitudeLabel = "lat"//getResources().getString(R.string.latitude_label);
@@ -208,7 +209,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         mLocationRequest?.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
     }
 
-
     //step 3
     protected fun buildLocationSettingsRequest() {
         val builder = LocationSettingsRequest.Builder();
@@ -216,9 +216,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         mLocationSettingsRequest = builder.build();
     }
 
-
     //step 4
-
     protected fun checkLocationSettings() {
         val result = LocationServices.SettingsApi.checkLocationSettings(
                 mGoogleApiClient,
@@ -226,7 +224,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         );
         result.setResultCallback(this);
     }
-
 
     /**
      * Requests location updates from the FusedLocationApi.
@@ -272,6 +269,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         }
     }
 
+    //If using emulator then send the location from Emulator's Extended Controls. :)
     override fun onConnected(p0: Bundle?) {
         Log.i(TAG, "Connected to GoogleApiClient");
 
@@ -291,7 +289,9 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
             } else {
                 mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                 mLastUpdateTime = DateFormat.getTimeInstance().format(Date());
-                updateLocationUI();
+                runOnUiThread {
+                    updateLocationUI();
+                }
             }
         }
     }
@@ -300,40 +300,46 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         Log.i(TAG, "Connection suspended");
     }
 
+    //If using emulator then send the location from Emulator's Extended Controls. :)
     override fun onLocationChanged(location: Location?) {
         mCurrentLocation = location;
         mLastUpdateTime = DateFormat.getTimeInstance().format(Date());
-        updateLocationUI();
-        Toast.makeText(this, "Location updated", Toast.LENGTH_SHORT).show();
+        runOnUiThread {
+            updateLocationUI();
+            Toast.makeText(this, "Location updated", Toast.LENGTH_SHORT).show();
+        }
     }
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
-
         // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
         // onConnectionFailed.
         Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + connectionResult.getErrorCode());
 
     }
 
+    //If using emulator then send the location from Emulator's Extended Controls. :)
     override fun onResult(locationSettingsResult: LocationSettingsResult) {
         val status: Status = locationSettingsResult.getStatus();
         when (status.getStatusCode()) {
             LocationSettingsStatusCodes.SUCCESS -> {
                 Log.i(TAG, "All location settings are satisfied.");
-
+                //If using emulator then send the location from Emulator's Extended Controls. :)
                 Toast.makeText(this, "Location is already on.", Toast.LENGTH_SHORT).show();
                 startLocationUpdates();
             }
+
             LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
                 Log.i(TAG, "Location settings are not satisfied. Show the user a dialog to" +
                         "upgrade location settings ");
                 try {
-                    // Show the dialog by calling startResolutionForResult(), and check the result
-                    // in onActivityResult().
-                    Toast.makeText(this, "Location dialog will be open", Toast.LENGTH_SHORT).show();
+                    runOnUiThread {
+                        // Show the dialog by calling startResolutionForResult(), and check the result
+                        // in onActivityResult().
+                        Toast.makeText(this, "Location dialog will be open", Toast.LENGTH_SHORT).show();
 
-                    //move to step 6 in onActivityResult to check what action user has taken on settings dialog
-                    status.startResolutionForResult(this, REQUEST_CHECK_SETTINGS);
+                        //move to step 6 in onActivityResult to check what action user has taken on settings dialog
+                        status.startResolutionForResult(this, REQUEST_CHECK_SETTINGS);
+                    }
                 } catch (e: IntentSender.SendIntentException) {
                     Log.i(TAG, "PendingIntent unable to execute request.");
                 }
