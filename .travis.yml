@@ -10,7 +10,6 @@ android:
   - platform-tools
   - build-tools-26.0.0-preview
   - tools
-  - ${ANDROID_HOME}tools/bin/sdkmanager "platforms;android-O" --channel=3
   - 'android-O'
   - extra-android-support
   - extra-google-google_play_services
@@ -21,5 +20,7 @@ android:
   - 'android-sdk-preview-license-.+'
   - 'android-sdk-license-.+'
   - '.+'
+install: [
+  "echo yes || ${ANDROID_HOME}tools/bin/sdkmanager \"platforms;android-O\" --channel=3"]
 script:
   - ./gradlew build
