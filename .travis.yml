@@ -20,6 +20,6 @@ android:
   - 'android-sdk-license-.+'
   - '.+'
 install:
-  - $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-O" --channel=3
+  - ${ANDROID_HOME}tools/bin/sdkmanager "platforms;android-O" --channel=3
 script:
   - ./gradlew build
