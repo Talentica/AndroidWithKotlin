@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity(), NotificationContract.View, colorDialog
     }
 
     override fun clearChannelFields() {
-        TODO("not implemented")
+        // not needed as of yet
     }
 
     override fun clearNotificationFields() {
