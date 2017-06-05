@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 'android-O'
-    buildToolsVersion "26.0.0 rc2"
+    buildToolsVersion "26.0.0-rc2"
     defaultConfig {
         applicationId "com.talentica.androidkotlin"
         minSdkVersion 16
