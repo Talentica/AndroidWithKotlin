@@ -19,5 +19,7 @@ android:
   - 'android-sdk-preview-license-.+'
   - 'android-sdk-license-.+'
   - '.+'
+install:
+  - $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-O" --channel=3
 script:
   - ./gradlew build
