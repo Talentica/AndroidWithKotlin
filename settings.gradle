@@ -1,1 +1,2 @@
-include ':app', ':audioplayer', ':locationmanager', ':sqlitedatabase', ':videostreaming', ':customcamera', ':o_notifications'
+include ':app', ':audioplayer', ':locationmanager', ':sqlitedatabase', ':videostreaming',
+        ':customcamera', ':o_notifications'
