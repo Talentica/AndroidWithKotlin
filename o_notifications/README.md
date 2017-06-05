@@ -15,3 +15,7 @@ This creates 2 notification channel groups when presenter (NotificationPresenter
  * Android sdk tools 26.0.2
  * Android sdk build-tools 26 rc2
  * Android sdk plateform-toools 26.0.0 rc2
+ 
+Android-O Notifications
+
+<img src="../gifs/o_notification_003.gif" width="59%">
