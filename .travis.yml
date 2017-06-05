@@ -10,6 +10,7 @@ android:
   - platform-tools
   - build-tools-26.0.0-preview
   - tools
+  - ${ANDROID_HOME}tools/bin/sdkmanager "platforms;android-O" --channel=3
   - 'android-O'
   - extra-android-support
   - extra-google-google_play_services
@@ -17,12 +18,6 @@ android:
   - extra-google-m2repository
   - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
   licenses:
-  - 'android-sdk-preview-license-.+'
-  - 'android-sdk-license-.+'
-  - '.+'
-install:
-  - ${ANDROID_HOME}tools/bin/sdkmanager "platforms;android-O" --channel=3
-licenses:
   - 'android-sdk-preview-license-.+'
   - 'android-sdk-license-.+'
   - '.+'
