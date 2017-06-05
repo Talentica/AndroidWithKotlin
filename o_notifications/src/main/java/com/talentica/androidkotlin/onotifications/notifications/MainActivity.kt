@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.view.View
+import android.widget.*
 import com.enrico.colorpicker.colorDialog
 import com.talentica.androidkotlin.onotifications.R
 import org.drulabs.notificationswithkotlin.android_o.NotificationContract
