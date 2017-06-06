@@ -38,4 +38,4 @@ Sqlite | <img src="/gifs/database.gif" width="59%">
 Video Streaming (Always use device to run this App since emulator has rendering issues) | <img src="/gifs/videostreaming.gif" width="59%">
 Custom Camera | <img src="/gifs/customcamera.gif" width="59%">
 Android-O Notifications | <img src="/gifs/o_notification_003.gif" width="59%">
-Compass | <img src="/gifs/compass.gif" width="59%">
+Compass (designed using accelerometer and magnetic field sensor) | <img src="/gifs/compass.gif" width="59%">
