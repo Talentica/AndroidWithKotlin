@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.talentica.androidkotlin.onotifications"
-        minSdkVersion 'O'
+        minSdkVersion 16
         targetSdkVersion 'O'
         versionCode 1
         versionName "1.0"

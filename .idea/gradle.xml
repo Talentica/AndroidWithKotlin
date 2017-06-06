@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/customcamera" />
             <option value="$PROJECT_DIR$/locationmanager" />
             <option value="$PROJECT_DIR$/o_notifications" />
+            <option value="$PROJECT_DIR$/sensors" />
             <option value="$PROJECT_DIR$/sqlitedatabase" />
             <option value="$PROJECT_DIR$/videostreaming" />
           </set>

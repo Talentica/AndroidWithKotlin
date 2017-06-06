@@ -6,9 +6,8 @@ android {
     compileSdkVersion 'android-O'
     buildToolsVersion "26.0.0 rc2"
 
-
     defaultConfig {
-        applicationId "com.talentica.androidkotlin.sqlitedatabase"
+        applicationId "com.talentica.androidkotlin.sensors"
         minSdkVersion 15
         targetSdkVersion 19
         versionCode 1
@@ -34,9 +33,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.0.0-beta1'
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
-    compile 'io.reactivex:rxandroid:0.24.0'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
 }
 repositories {
     mavenCentral()
