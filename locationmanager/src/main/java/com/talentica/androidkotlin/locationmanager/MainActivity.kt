@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
     private var tv_city: TextView? = null;
 
     //Any random number you can take
-    public val REQUEST_PERMISSION_LOCATION: Int = 10;
+    val REQUEST_PERMISSION_LOCATION: Int = 10;
 
     /**
      * Constant used in the location settings dialog.
