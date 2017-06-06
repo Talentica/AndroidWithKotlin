@@ -33,7 +33,7 @@ Name | Demo
 --- | ---                                                          
 Google io17 Architecture ViewModels Livedata Sample | <img src="/gifs/googleio2017.gif" width="59%">
 Audio MP3 Player | <img src="/gifs/audioplayer.gif" width="59%">
-Location (If using emulator then send the location from Extended Controls of Emulator.) | <img src="/gifs/location.gif" width="59%">
+Location (If using emulator then send the location from Extended Controls of Emulator) | <img src="/gifs/location.gif" width="59%">
 Sqlite | <img src="/gifs/database.gif" width="59%">
 Video Streaming (Always use device to run this App since emulator has rendering issues) | <img src="/gifs/videostreaming.gif" width="59%">
 Custom Camera | <img src="/gifs/customcamera.gif" width="59%">
