@@ -45,7 +45,7 @@ class LandingActivity : SlowkaActivity<LandingActivityView>(), LandingActivityVi
         super.onCreate(savedInstanceState)
         setContentViewWithToolbar(R.layout.activity_landing, true)
 
-        val fab = findViewById(R.id.fab) as FloatingActionButton
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             startActivity(CameraActivity.createIntent(this))
         }

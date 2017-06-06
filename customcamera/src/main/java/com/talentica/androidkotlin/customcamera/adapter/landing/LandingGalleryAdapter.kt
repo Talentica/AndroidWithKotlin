@@ -39,7 +39,7 @@ class LandingGalleryAdapter(private val mContext: Context) : BaseAdapter() {
         }
 
         val bm = decodeSampledBitmapFromUri(itemList[position], 220, 220)
-        val imv:ImageView = viewItem?.findViewById(R.id.pic) as ImageView
+        val imv:ImageView = viewItem?.findViewById<ImageView>(R.id.pic)!!
         imv.setImageBitmap(bm)
         return viewItem!!
     }

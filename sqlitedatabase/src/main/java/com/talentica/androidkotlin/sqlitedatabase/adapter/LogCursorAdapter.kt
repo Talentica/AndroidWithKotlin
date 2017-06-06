@@ -26,10 +26,10 @@ class LogCursorAdapter(context: Context, cursor: Cursor) : CursorAdapter(context
 
 
     override fun bindView(view: View, context: Context?, cursor: Cursor) {
-        val tvText = view.findViewById(R.id.tvText) as TextView
+        val tvText = view.findViewById<TextView>(R.id.tvText)
         tvText.setText(getString(cursor, DbHelper.TEXT))
 
-        val tvTimestamp = view.findViewById(R.id.tvTimestamp) as TextView
+        val tvTimestamp = view.findViewById<TextView>(R.id.tvTimestamp)
         val timeValue = getString(cursor, DbHelper.TIMESTAMP)
         val time = timeValue.toLong()
         val date = Date()

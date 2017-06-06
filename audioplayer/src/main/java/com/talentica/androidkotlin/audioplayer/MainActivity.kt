@@ -30,13 +30,13 @@ class MainActivity : AppCompatActivity(), SeekBar.OnSeekBarChangeListener, Media
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mSeekbar = findViewById(R.id.progressbar) as SeekBar
+        mSeekbar = findViewById<SeekBar>(R.id.progressbar)
         mSeekbar?.setOnSeekBarChangeListener(this)
 
-        mPlayPauseButton = findViewById(R.id.play_pause_btn) as ImageButton
+        mPlayPauseButton = findViewById<ImageButton>(R.id.play_pause_btn)
         mPlayPauseButton?.setOnClickListener(this)
 
-        mTimer = findViewById(R.id.tv_progress) as TextView
+        mTimer = findViewById<TextView>(R.id.tv_progress)
     }
 
     override fun onClick(v: View?) {

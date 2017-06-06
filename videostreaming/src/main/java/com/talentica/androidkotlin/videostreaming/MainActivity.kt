@@ -33,19 +33,19 @@ class MainActivity : AppCompatActivity(), MediaPlayer.OnCompletionListener,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        sampleVideoView = findViewById(R.id.videoView) as VideoView
+        sampleVideoView = findViewById<VideoView>(R.id.videoView)
         sampleVideoView?.setVideoURI(Uri.parse(HLS_STREAMING_SAMPLE))
 
-        playPauseButton = findViewById(R.id.playPauseButton) as ImageView
+        playPauseButton = findViewById<ImageView>(R.id.playPauseButton)
         playPauseButton?.setOnClickListener(this)
 
-        stopButton = findViewById(R.id.stopButton) as ImageView
+        stopButton = findViewById<ImageView>(R.id.stopButton)
         stopButton?.setOnClickListener(this)
 
-        seekBar = findViewById(R.id.seekBar) as SeekBar
+        seekBar = findViewById<SeekBar>(R.id.seekBar)
         seekBar?.setOnSeekBarChangeListener(this)
 
-        runningTime = findViewById(R.id.runningTime) as TextView
+        runningTime = findViewById<TextView>(R.id.runningTime)
         runningTime?.setText("00:00")
 
         Toast.makeText(this, "Buffering...Please wait", Toast.LENGTH_LONG).show()

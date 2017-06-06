@@ -61,10 +61,10 @@ class SearchActivity : LoaderManager.LoaderCallbacks<Cursor>, AppCompatActivity(
         setContentView(R.layout.activity_search)
 
         //initialize the UI widgets
-        list = findViewById(R.id.list) as ListView
-        editText = findViewById(R.id.editText) as EditText
-        addFriendButton = findViewById(R.id.addFriendButton) as Button
-        loading = findViewById(R.id.loading) as ProgressBar
+        list = findViewById<ListView>(R.id.list)
+        editText = findViewById<EditText>(R.id.editText)
+        addFriendButton = findViewById<Button>(R.id.addFriendButton)
+        loading = findViewById<ProgressBar>(R.id.loading)
 
         //initialize the delegates
         mApp = application as MainApplication

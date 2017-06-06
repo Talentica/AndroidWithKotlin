@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">O Notifications</string>
+    <string name="notificatoin_channel">Create Notification Channel</string>
+    <string name="notification_channel">Create notification channel</string>
+    <string name="notification_channel_id">Enter channel id</string>
+    <string name="create_channel_text">Create channel</string>
+    <string name="notification_create">Create notification</string>
+    <string name="hint_channel_id">Channel id (Default)</string>
+    <string name="hint_notification_title">Title (The title)</string>
+    <string name="hint_notification_body">Content (blah blah blah)</string>
+    <string name="create_notification_text">Notify</string>
+    <string name="ongoing_text">Ongoing</string>
+    <string name="empty_params_msg">One or more parameters are empty</string>
+    <string name="channel_created_msg">Notification channel created</string>
+    <string name="channel_already_exists_msg">Notification channel with this Id already exists</string>
+    <string name="channel_doesnt_exist_msg">Please select a valid channel</string>
+    <string name="default_noification_title">The default title</string>
+    <string name="default_noification_body">default notification body</string>
+    <string name="channel_group_selection_text">Personal</string>
+
+    <!--This array is arranged as per value in int, unspecified has a value of -1000-->
+    <string-array name="channel_importance">
+        <item>None</item>
+        <item>Min Importance</item>
+        <item>Low Importance</item>
+        <item>Default Importance</item>
+        <item>High Importance</item>
+        <item>Max Importance</item>
+        <item>Unspecified Importance</item>
+    </string-array>
+</resources>

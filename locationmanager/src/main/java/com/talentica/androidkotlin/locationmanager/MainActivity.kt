@@ -148,14 +148,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
 
-        btn_location = findViewById(R.id.btn_detect_fused_location) as Button
+        btn_location = findViewById<Button>(R.id.btn_detect_fused_location)
         //total six textviews
-        txt_location = findViewById(R.id.txt_location) as TextView
-        mLatitudeTextView = findViewById(R.id.mLatitudeTextView) as TextView
-        mLongitudeTextView = findViewById(R.id.mLongitudeTextView) as TextView
-        mLastUpdateTimeTextView = findViewById(R.id.mLastUpdateTimeTextView) as TextView
-        tv_city = findViewById(R.id.tv_city) as TextView
-        tv_pincode = findViewById(R.id.tv_pincode) as TextView
+        txt_location = findViewById<TextView>(R.id.txt_location)
+        mLatitudeTextView = findViewById<TextView>(R.id.mLatitudeTextView)
+        mLongitudeTextView = findViewById<TextView>(R.id.mLongitudeTextView)
+        mLastUpdateTimeTextView = findViewById<TextView>(R.id.mLastUpdateTimeTextView)
+        tv_city = findViewById<TextView>(R.id.tv_city)
+        tv_pincode = findViewById<TextView>(R.id.tv_pincode)
 
         // Set labels.
         mLatitudeLabel = "lat"//getResources().getString(R.string.latitude_label);
@@ -289,7 +289,9 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
             } else {
                 mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
                 mLastUpdateTime = DateFormat.getTimeInstance().format(Date());
-                updateLocationUI();
+                runOnUiThread {
+                    updateLocationUI();
+                }
             }
         }
     }
@@ -302,12 +304,13 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
     override fun onLocationChanged(location: Location?) {
         mCurrentLocation = location;
         mLastUpdateTime = DateFormat.getTimeInstance().format(Date());
-        updateLocationUI();
-        Toast.makeText(this, "Location updated", Toast.LENGTH_SHORT).show();
+        runOnUiThread {
+            updateLocationUI();
+            Toast.makeText(this, "Location updated", Toast.LENGTH_SHORT).show();
+        }
     }
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
-
         // Refer to the javadoc for ConnectionResult to see what error codes might be returned in
         // onConnectionFailed.
         Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + connectionResult.getErrorCode());
@@ -329,12 +332,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks,
                 Log.i(TAG, "Location settings are not satisfied. Show the user a dialog to" +
                         "upgrade location settings ");
                 try {
-                    // Show the dialog by calling startResolutionForResult(), and check the result
-                    // in onActivityResult().
-                    Toast.makeText(this, "Location dialog will be open", Toast.LENGTH_SHORT).show();
+                    runOnUiThread {
+                        // Show the dialog by calling startResolutionForResult(), and check the result
+                        // in onActivityResult().
+                        Toast.makeText(this, "Location dialog will be open", Toast.LENGTH_SHORT).show();
 
-                    //move to step 6 in onActivityResult to check what action user has taken on settings dialog
-                    status.startResolutionForResult(this, REQUEST_CHECK_SETTINGS);
+                        //move to step 6 in onActivityResult to check what action user has taken on settings dialog
+                        status.startResolutionForResult(this, REQUEST_CHECK_SETTINGS);
+                    }
                 } catch (e: IntentSender.SendIntentException) {
                     Log.i(TAG, "PendingIntent unable to execute request.");
                 }
