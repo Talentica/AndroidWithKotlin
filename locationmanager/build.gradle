@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.talentica.androidkotlin.locationmanager"
         minSdkVersion 15
-        targetSdkVersion 'O'
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
 

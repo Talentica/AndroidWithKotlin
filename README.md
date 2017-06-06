@@ -10,6 +10,7 @@ The project contains the following apps:
 #### 5. videostreaming: A live RTSP video streaming app with custom media controls.(Better run this app on physical device)
 #### 6. customcamera: This is a MVP pattern, custom camera app with flash support. The home screen is a gridview which shows clicked photos. Dagger 2 implementation added.
 #### 7. o_notifications: This is a MVP pattern, android-O notifications. The home screen provides simple way to create notification channels and notifications. By default there are 2 notification groups “Personal” and “Business”.
+#### 8. sensors: Explore how to make a compass app using magnetic field sensor and accelerometer. 
  
 More to come in future :octocat: :star2:
 
@@ -37,3 +38,4 @@ Sqlite | <img src="/gifs/database.gif" width="59%">
 Video Streaming (Always use device to run this App since emulator has rendering issues) | <img src="/gifs/videostreaming.gif" width="59%">
 Custom Camera | <img src="/gifs/customcamera.gif" width="59%">
 Android-O Notifications | <img src="/gifs/o_notification_003.gif" width="59%">
+Compass | <img src="/gifs/compass.gif" width="59%">
