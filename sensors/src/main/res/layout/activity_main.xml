@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="The red arrow points the north direction"
+        android:text="The red arrow points North"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp" />
 
     <ImageView
