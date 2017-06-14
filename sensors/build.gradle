@@ -3,8 +3,8 @@ apply plugin: 'kotlin-android'
 
 
 android {
-    compileSdkVersion 'android-O'
-    buildToolsVersion "26.0.0 rc2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
 
     defaultConfig {
         applicationId "com.talentica.androidkotlin.sensors"
@@ -22,6 +22,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
 }
 
 dependencies {

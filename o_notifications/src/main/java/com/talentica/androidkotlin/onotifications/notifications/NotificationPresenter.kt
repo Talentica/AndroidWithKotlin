@@ -14,7 +14,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-package org.drulabs.notificationswithkotlin.android_o
+package com.talentica.androidkotlin.onotifications.notifications
 
 import android.app.Activity
 import android.app.NotificationManager
@@ -23,7 +23,7 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import com.enrico.colorpicker.colorDialog
 import com.talentica.androidkotlin.onotifications.R
-import org.drulabs.notificationswithkotlin.utils.NotificationHelper
+import com.talentica.androidkotlin.onotifications.utils.NotificationHelper
 
 
 class NotificationPresenter(context: Activity, view: NotificationContract.View) : NotificationContract.Presenter {

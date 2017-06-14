@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package org.drulabs.notificationswithkotlin.utils
+package com.talentica.androidkotlin.onotifications.utils
 
 import android.app.*
 import android.content.Context

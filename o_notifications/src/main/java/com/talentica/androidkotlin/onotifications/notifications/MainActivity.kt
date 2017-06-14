@@ -25,8 +25,6 @@ import android.view.View
 import android.widget.*
 import com.enrico.colorpicker.colorDialog
 import com.talentica.androidkotlin.onotifications.R
-import org.drulabs.notificationswithkotlin.android_o.NotificationContract
-import org.drulabs.notificationswithkotlin.android_o.NotificationPresenter
 
 class MainActivity : AppCompatActivity(), NotificationContract.View, colorDialog
 .ColorSelectedListener, View.OnClickListener {

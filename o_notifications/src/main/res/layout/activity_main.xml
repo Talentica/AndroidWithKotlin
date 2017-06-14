@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.drulabs.notificationswithkotlin.MainActivity">
+    tools:context="com.talentica.androidkotlin.onotifications.notifications.MainActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -51,14 +51,14 @@
         android:id="@+id/img_pick_color"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/ic_color_lens_black_24dp"
-        app:layout_constraintStart_toEndOf="@+id/btn_create_notification"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_create_notification"
         app:layout_constraintTop_toTopOf="@+id/btn_create_notification"
-        android:layout_marginTop="8dp"/>
+        app:srcCompat="@drawable/ic_color_lens_black_24dp"/>
 
     <Button
         android:id="@+id/btn_create_channel"
@@ -171,11 +171,11 @@
         android:id="@+id/chk_channel_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/channel_group_selection_text"
-        app:layout_constraintStart_toEndOf="@+id/et_channel_id"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/et_channel_id"/>
+        android:layout_marginStart="8dp"
+        android:text="@string/channel_group_selection_text"
+        app:layout_constraintBaseline_toBaselineOf="@+id/et_channel_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/et_channel_id"/>
 
 </android.support.constraint.ConstraintLayout>
