@@ -8,5 +8,5 @@
     <string name="load_with_volley">Volley</string>
     <string name="intro_text">Enter github username and retrieve top 20 repos with popular
         networking libraries</string>
-    <string name="some_error_occured">Some error occured. Please try again!!</string>
+    <string name="some_error_occured">Some error occurred. Please try again!!</string>
 </resources>
