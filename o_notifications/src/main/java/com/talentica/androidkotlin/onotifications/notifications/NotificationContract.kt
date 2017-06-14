@@ -14,12 +14,11 @@
  * limitations under the License.
  *******************************************************************************/
 
-package org.drulabs.notificationswithkotlin.android_o
+package com.talentica.androidkotlin.onotifications.notifications
 
 import android.graphics.Color
-import org.drulabs.notificationswithkotlin.BasePresenter
-import org.drulabs.notificationswithkotlin.BaseView
-
+import com.talentica.androidkotlin.onotifications.BasePresenter
+import com.talentica.androidkotlin.onotifications.BaseView
 
 interface NotificationContract {
 

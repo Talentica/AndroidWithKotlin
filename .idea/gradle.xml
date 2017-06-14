@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/audioplayer" />
             <option value="$PROJECT_DIR$/customcamera" />
             <option value="$PROJECT_DIR$/locationmanager" />
+            <option value="$PROJECT_DIR$/networking" />
             <option value="$PROJECT_DIR$/o_notifications" />
             <option value="$PROJECT_DIR$/sensors" />
             <option value="$PROJECT_DIR$/sqlitedatabase" />

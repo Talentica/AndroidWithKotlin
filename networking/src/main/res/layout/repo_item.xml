@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/rl_repo_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/circ_bg">
+
+    <TextView
+        android:id="@+id/tv_repo_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tv_repo_stars"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="4"
+        android:textSize="16sp"
+        tools:text="@tools:sample/lorem"/>
+
+    <TextView
+        android:id="@+id/tv_repo_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/img_github_avatar"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="25sp"
+        tools:text="Repo 01"/>
+
+    <TextView
+        android:id="@+id/tv_repo_stars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tv_repo_name"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/ic_repo_stars"
+        android:ellipsize="end"
+        android:gravity="end|center_vertical"
+        android:maxLines="1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="78"/>
+
+    <TextView
+        android:id="@+id/tv_last_updated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_repo_stars"
+        android:layout_alignBottom="@+id/tv_repo_stars"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:ellipsize="end"
+        android:gravity="end|center_vertical"
+        android:maxLines="1"
+        android:textSize="16sp"
+        tools:text="Last updated: 24-Apr-2017"/>
+
+    <ImageView
+        android:id="@+id/img_github_avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="4dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside"
+        app:srcCompat="@mipmap/ic_launcher"/>
+</RelativeLayout>
