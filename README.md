@@ -22,10 +22,10 @@ More to come in future :octocat: :star2:
 
  * Android Studio 3.0 Canery 3
  * Kotlin compiler and runtime version 1.1.2-4
- * Android O
+ * Android SDK Platform 26 (android-O)
  * Android sdk tools 26.0.2
- * Android sdk build-tools 26 rc2
- * Android sdk plateform-toools 26.0.0 rc2
+ * Android sdk build-tools 26.0.0
+ * Android sdk plateform-tools 26.0.0
  
 
 Projects
