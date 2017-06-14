@@ -16,7 +16,7 @@ The project contains the following apps:
 More to come in future :octocat: :star2:
 
 <img src="http://i.imgur.com/HzmmBvZ.jpg" />&nbsp;
-
+ 
 
 ## Minimum Requirements
 
