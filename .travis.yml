@@ -21,6 +21,6 @@ android:
   - 'android-sdk-license-.+'
   - '.+'
 install: [
-  "echo yes | ${ANDROID_HOME}tools/bin/sdkmanager \"platforms;android-O\" --channel=3"]
+  "echo yes | ${ANDROID_HOME}tools/bin/sdkmanager \"platforms;android-26\" --channel=3"]
 script:
   - ./gradlew build
