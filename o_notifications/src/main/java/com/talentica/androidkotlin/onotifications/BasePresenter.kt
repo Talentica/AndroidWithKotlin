@@ -14,7 +14,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-package org.drulabs.notificationswithkotlin
+package com.talentica.androidkotlin.onotifications
 
 interface BasePresenter {
     fun start()

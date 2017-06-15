@@ -11,20 +11,21 @@ The project contains the following apps:
 #### 6. customcamera: This is a MVP pattern, custom camera app with flash support. The home screen is a gridview which shows clicked photos. Dagger 2 implementation added.
 #### 7. o_notifications: This is a MVP pattern, android-O notifications. The home screen provides simple way to create notification channels and notifications. By default there are 2 notification groups “Personal” and “Business”.
 #### 8. sensors: Explore how to make a compass app using magnetic field sensor and accelerometer. 
+#### 9. networking: Networking with popular networking libraries like retrofit and volley. Also recycler view with kotlin.
  
 More to come in future :octocat: :star2:
 
 <img src="http://i.imgur.com/HzmmBvZ.jpg" />&nbsp;
-
+ 
 
 ## Minimum Requirements
 
  * Android Studio 3.0 Canery 3
  * Kotlin compiler and runtime version 1.1.2-4
- * Android O
+ * Android SDK Platform 26 (android-O)
  * Android sdk tools 26.0.2
- * Android sdk build-tools 26 rc2
- * Android sdk plateform-toools 26.0.0 rc2
+ * Android sdk build-tools 26.0.0
+ * Android sdk plateform-tools 26.0.0
  
 
 Projects
@@ -39,3 +40,4 @@ Video Streaming (Always use device to run this App since emulator has rendering 
 Custom Camera | <img src="/gifs/customcamera.gif" width="59%">
 Android-O Notifications | <img src="/gifs/o_notification_003.gif" width="59%">
 Compass (designed using accelerometer and magnetic field sensor) | <img src="/gifs/compass.gif" width="59%">
+Networking & Recycler view (REST calls with volley, retrofit and okhttp) | <img src="/gifs/networking_with_kotlin_003.gif" width="59%">

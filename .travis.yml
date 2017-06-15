@@ -8,9 +8,9 @@ android:
   components:
   - tools
   - platform-tools
-  - build-tools-26.0.0-preview
+  - build-tools-26.0.0
   - tools
-  - 'android-O'
+  - 'android-26'
   - extra-android-support
   - extra-google-google_play_services
   - extra-android-m2repository
@@ -21,6 +21,6 @@ android:
   - 'android-sdk-license-.+'
   - '.+'
 install: [
-  "echo yes | ${ANDROID_HOME}tools/bin/sdkmanager \"platforms;android-O\" --channel=3"]
+  "echo yes | ${ANDROID_HOME}tools/bin/sdkmanager \"platforms;android-26\" --channel=3"]
 script:
   - ./gradlew build

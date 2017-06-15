@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Networking</string>
+    <string name="github_username_hint">Github username</string>
+    <string name="load_repos_text">Load repositories</string>
+    <string name="really_long_str">When you fetch a list of resources, the response includes a subset of the attributes for that resource. This is the "summary" representation of the resource. (Some attributes are computationally expensive for the API to provide. For performance reasons, the summary representation excludes those attributes. To obtain those attributes, fetch the "detailed" representation.)</string>
+    <string name="load_with_retrofit">Retrofit</string>
+    <string name="load_with_okhttp">OkHttp</string>
+    <string name="load_with_volley">Volley</string>
+    <string name="intro_text">Enter github username and retrieve top 20 repos with popular
+        networking libraries</string>
+    <string name="some_error_occured">Some error occurred. Please try again!!</string>
+</resources>
