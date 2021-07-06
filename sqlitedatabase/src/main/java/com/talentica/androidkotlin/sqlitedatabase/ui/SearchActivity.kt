@@ -7,7 +7,7 @@ import android.content.Loader
 import android.database.Cursor
 import android.os.Bundle
 import android.os.Looper
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.Gravity
 import android.view.View
