@@ -16,16 +16,17 @@
 
 package com.talentica.androidkotlin;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleFragment;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.talentica.androidkotlin.databinding.ListFragmentBinding;
 import com.talentica.androidkotlin.db.entity.ProductEntity;
@@ -36,7 +37,7 @@ import com.talentica.androidkotlin.viewmodel.ProductListViewModel;
 
 import java.util.List;
 
-public class ProductListFragment extends LifecycleFragment {
+public class ProductListFragment extends Fragment {
 
     public static final String TAG = "ProductListViewModel";
 
@@ -67,7 +68,7 @@ public class ProductListFragment extends LifecycleFragment {
 
     private void subscribeUi(ProductListViewModel viewModel) {
         // Update the list when the data changes
-        viewModel.getProducts().observe(this, new Observer<List<ProductEntity>>() {
+        viewModel.getProducts().observe(getViewLifecycleOwner(), new Observer<List<ProductEntity>>() {
             @Override
             public void onChanged(@Nullable List<ProductEntity> myProducts) {
                 if (myProducts != null) {

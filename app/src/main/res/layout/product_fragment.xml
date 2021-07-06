@@ -57,7 +57,7 @@
                 android:layout_height="match_parent"
                 android:id="@+id/comments_list_wrapper">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/comment_list"
                     android:contentDescription="@string/cd_comments_list"
                     android:layout_width="match_parent"

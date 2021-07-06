@@ -17,12 +17,12 @@
 package com.talentica.androidkotlin;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
-import android.arch.lifecycle.LifecycleActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import com.talentica.androidkotlin.model.Product;
 
-public class MainActivity extends LifecycleActivity {
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

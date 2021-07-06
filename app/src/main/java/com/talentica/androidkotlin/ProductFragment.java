@@ -16,12 +16,12 @@
 
 package com.talentica.androidkotlin;
 
-import android.arch.lifecycle.LifecycleFragment;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +36,7 @@ import com.talentica.androidkotlin.viewmodel.ProductViewModel;
 
 import java.util.List;
 
-public class ProductFragment extends LifecycleFragment {
+public class ProductFragment extends Fragment {
 
     private static final String KEY_PRODUCT_ID = "product_id";
 
@@ -82,7 +82,7 @@ public class ProductFragment extends LifecycleFragment {
     private void subscribeToModel(final ProductViewModel model) {
 
         // Observe product data
-        model.getObservableProduct().observe(this, new Observer<ProductEntity>() {
+        model.getObservableProduct().observe(getViewLifecycleOwner(), new Observer<ProductEntity>() {
             @Override
             public void onChanged(@Nullable ProductEntity productEntity) {
                 model.setProduct(productEntity);
@@ -90,7 +90,7 @@ public class ProductFragment extends LifecycleFragment {
         });
 
         // Observe comments
-        model.getComments().observe(this, new Observer<List<CommentEntity>>() {
+        model.getComments().observe(getViewLifecycleOwner(), new Observer<List<CommentEntity>>() {
             @Override
             public void onChanged(@Nullable List<CommentEntity> commentEntities) {
                 if (commentEntities != null) {
