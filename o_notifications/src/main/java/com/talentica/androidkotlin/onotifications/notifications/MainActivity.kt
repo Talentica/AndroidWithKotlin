@@ -18,9 +18,9 @@ package com.talentica.androidkotlin.onotifications.notifications
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 import android.view.View
 import android.widget.*
 import com.enrico.colorpicker.colorDialog
