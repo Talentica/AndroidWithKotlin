@@ -1,12 +1,10 @@
 package com.talentica.androidkotlin
 
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-
+import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
-
-import org.junit.Assert.*
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -19,7 +17,7 @@ class ExampleInstrumentedTest {
     @Throws(Exception::class)
     fun useAppContext() {
         // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.talentica.androidkotlin", appContext.packageName)
     }
 }
