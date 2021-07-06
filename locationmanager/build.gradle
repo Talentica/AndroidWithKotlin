@@ -3,18 +3,17 @@ apply plugin: 'kotlin-android'
 
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion 30
 
 
     defaultConfig {
         applicationId "com.talentica.androidkotlin.locationmanager"
-        minSdkVersion 15
-        targetSdkVersion 19
+        minSdkVersion 21
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
     }
     buildTypes {
@@ -28,21 +27,27 @@ android {
             abortOnError false
         }
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:26.0.0-beta1'
-    testCompile 'junit:junit:4.12'
-    compile 'com.google.android.gms:play-services-location:10.2.6'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-//    compile 'com.android.support:design:25.3.1'
+//    implementation 'com.android.support:design:25.3.1'
 }
 repositories {
     mavenCentral()
