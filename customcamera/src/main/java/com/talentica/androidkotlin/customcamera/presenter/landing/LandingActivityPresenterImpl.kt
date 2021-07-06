@@ -7,8 +7,8 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import android.view.MenuItem
 import android.widget.GridView
 import android.widget.Toast
@@ -16,7 +16,7 @@ import com.talentica.androidkotlin.customcamera.R
 import com.talentica.androidkotlin.customcamera.adapter.landing.LandingGalleryAdapter
 import com.talentica.androidkotlin.customcamera.ui.landing.LandingActivityView
 import com.talentica.androidkotlin.customcamera.utils.Utils
-import android.support.v4.content.FileProvider
+import androidx.core.content.FileProvider
 import android.webkit.MimeTypeMap
 
 

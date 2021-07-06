@@ -3,14 +3,14 @@ package com.talentica.androidkotlin.customcamera.ui
 import android.app.Activity
 import android.os.Build
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
 import android.view.WindowManager
-import butterknife.bindView
 import com.talentica.androidkotlin.customcamera.R
 import com.talentica.androidkotlin.customcamera.presenter.ActivityPresenter
+import kotterknife.bindView
 
 abstract class SlowkaActivity <T>: AppCompatActivity() {
 
@@ -55,8 +55,8 @@ abstract class SlowkaActivity <T>: AppCompatActivity() {
         activityPresenter.pause()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == android.R.id.home) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
             onBackPressed()
             return true
         }

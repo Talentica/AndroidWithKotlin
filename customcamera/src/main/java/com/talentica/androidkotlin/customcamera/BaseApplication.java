@@ -5,6 +5,9 @@ import com.talentica.androidkotlin.customcamera.dagger.AndroidModule;
 import com.talentica.androidkotlin.customcamera.dagger.ApplicationComponent;
 import com.talentica.androidkotlin.customcamera.dagger.DaggerApplicationComponent;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import timber.log.Timber;
 
 public class BaseApplication extends Application {
@@ -41,7 +44,12 @@ public class BaseApplication extends Application {
     }
 
     protected void provideLogging() {
-        Timber.plant(new Timber.HollowTree());
+        Timber.plant(new Timber.Tree() {
+            @Override
+            protected void log(int priority, @Nullable String tag, @NotNull String message, @Nullable Throwable t) {
+                
+            }
+        });
     }
 
     public static BaseApplication getInstance() {

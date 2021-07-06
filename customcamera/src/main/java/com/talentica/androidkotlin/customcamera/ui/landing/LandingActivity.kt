@@ -1,18 +1,15 @@
 package com.talentica.androidkotlin.customcamera.ui.landing
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.TextView
-import android.widget.Toast
-import butterknife.bindView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
 import com.talentica.androidkotlin.customcamera.R
 import com.talentica.androidkotlin.customcamera.adapter.landing.LandingGalleryAdapter
 import com.talentica.androidkotlin.customcamera.dagger.HasComponent
@@ -22,9 +19,8 @@ import com.talentica.androidkotlin.customcamera.presenter.ActivityPresenter
 import com.talentica.androidkotlin.customcamera.presenter.landing.LandingActivityPresenter
 import com.talentica.androidkotlin.customcamera.ui.SlowkaActivity
 import com.talentica.androidkotlin.customcamera.ui.camera.CameraActivity
+import kotterknife.bindView
 import javax.inject.Inject
-import android.content.Intent
-import android.net.Uri
 
 
 class LandingActivity : SlowkaActivity<LandingActivityView>(), LandingActivityView,

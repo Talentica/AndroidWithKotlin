@@ -7,15 +7,15 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.TextView
-import butterknife.bindView
-import com.talentica.androidkotlin.customcamera.presenter.ActivityPresenter
 import com.talentica.androidkotlin.customcamera.R
 import com.talentica.androidkotlin.customcamera.dagger.HasComponent
 import com.talentica.androidkotlin.customcamera.dagger.camera.CameraActivityComponent
 import com.talentica.androidkotlin.customcamera.dagger.camera.CameraActivityComponentAssembler
+import com.talentica.androidkotlin.customcamera.presenter.ActivityPresenter
 import com.talentica.androidkotlin.customcamera.presenter.camera.CameraActivityPresenter
-import com.talentica.androidkotlin.customcamera.utils.Ratio
 import com.talentica.androidkotlin.customcamera.ui.SlowkaActivity
+import com.talentica.androidkotlin.customcamera.utils.Ratio
+import kotterknife.bindView
 import javax.inject.Inject
 
 class CameraActivity : SlowkaActivity<CameraActivityView>(), CameraActivityView ,
@@ -92,6 +92,7 @@ class CameraActivity : SlowkaActivity<CameraActivityView>(), CameraActivityView 
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         presenter.onRequestPermissionsResult(requestCode, grantResults)
     }
 

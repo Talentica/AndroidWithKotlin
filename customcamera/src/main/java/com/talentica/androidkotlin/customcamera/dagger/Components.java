@@ -2,7 +2,7 @@ package com.talentica.androidkotlin.customcamera.dagger;
 
 import android.app.Activity;
 import android.app.Application;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.talentica.androidkotlin.customcamera.BaseApplication;
 

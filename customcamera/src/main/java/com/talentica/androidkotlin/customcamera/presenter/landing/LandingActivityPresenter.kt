@@ -1,6 +1,6 @@
 package com.talentica.androidkotlin.customcamera.presenter.landing
 
-import android.support.design.widget.NavigationView
+import com.google.android.material.navigation.NavigationView
 import android.widget.GridView
 import com.talentica.androidkotlin.customcamera.presenter.ActivityPresenter
 import com.talentica.androidkotlin.customcamera.ui.landing.LandingActivityView
