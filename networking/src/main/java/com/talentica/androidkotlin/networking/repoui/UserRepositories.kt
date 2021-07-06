@@ -3,12 +3,12 @@ package com.talentica.androidkotlin.networking.repoui
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.talentica.androidkotlin.networking.R
 import com.talentica.androidkotlin.networking.dto.Repository
 
@@ -37,7 +37,9 @@ class UserRepositories : AppCompatActivity(), RepositoryContract.View {
         val username = intent.getStringExtra("username")
         val libType = intent.getStringExtra("libraryType")
 
-        mPresenter.start(libType, username)
+        if (libType != null && username != null) {
+            mPresenter.start(libType, username)
+        }
     }
 
     override fun onDestroy() {

@@ -111,7 +111,7 @@ class RepoPresenter(cxt: Activity, view: RepositoryContract.View) : RepositoryCo
 
     private fun loadWithOkHttp(username: String) {
         OkHttpService.httpGet(username, object : okhttp3.Callback {
-            override fun onFailure(call: okhttp3.Call?, e: IOException?) {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
 
                 if (!isAlive) {
                     return
@@ -122,14 +122,14 @@ class RepoPresenter(cxt: Activity, view: RepositoryContract.View) : RepositoryCo
                 view.destroy()
             }
 
-            override fun onResponse(call: okhttp3.Call?, response: okhttp3.Response?) {
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
 
                 if (!isAlive) {
                     return
                 }
 
-                if (response?.body() != null) {
-                    val strResponse = response.body()!!.string()
+                if (response.body != null) {
+                    val strResponse = response.body!!.string()
                     val repoList = gson.fromJson(strResponse, Array<Repository>::class.java)
                     view.onReposAvailable(repoList)
                     view.hideLoading()
