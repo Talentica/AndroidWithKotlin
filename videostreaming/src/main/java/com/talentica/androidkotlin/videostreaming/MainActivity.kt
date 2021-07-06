@@ -4,7 +4,7 @@ import android.app.ProgressDialog
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), MediaPlayer.OnCompletionListener,
         MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener, SeekBar.OnSeekBarChangeListener,
         View.OnClickListener {
 
-    private val HLS_STREAMING_SAMPLE = "rtsp://mpv.cdn3.bigCDN.com:554/bigCDN/_definst_/mp4:bigbuckbunnyiphone_400.mp4"
+    private val HLS_STREAMING_SAMPLE = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov"
     private var sampleVideoView: VideoView? = null
     private var seekBar: SeekBar? = null
     private var playPauseButton: ImageView? = null
