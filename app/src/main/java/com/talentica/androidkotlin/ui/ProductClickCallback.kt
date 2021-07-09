@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.talentica.androidkotlin.ui
 
-package com.talentica.androidkotlin.ui;
+import com.talentica.androidkotlin.model.Product
 
-import com.talentica.androidkotlin.model.Product;
-
-public interface ProductClickCallback {
-    void onClick(Product product);
+interface ProductClickCallback {
+    fun onClick(product: Product)
 }

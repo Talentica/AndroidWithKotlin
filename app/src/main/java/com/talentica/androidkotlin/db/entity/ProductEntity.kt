@@ -13,11 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.talentica.androidkotlin.db.entity
 
-package com.talentica.androidkotlin.ui;
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.talentica.androidkotlin.model.Product
 
-import com.talentica.androidkotlin.model.Comment;
+@Entity(tableName = "products")
+class ProductEntity : Product {
+    @PrimaryKey
+    override var id = 0
+    override var name: String? = null
+    override var description: String? = null
+    override var price = 0
 
-public interface CommentClickCallback {
-    void onClick(Comment comment);
+    constructor() {}
+    constructor(product: Product) {
+        id = product.id
+        name = product.name
+        description = product.description
+        price = product.price
+    }
 }

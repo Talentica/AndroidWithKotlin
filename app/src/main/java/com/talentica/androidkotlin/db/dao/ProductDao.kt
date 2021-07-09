@@ -13,30 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.talentica.androidkotlin.db.dao
 
-package com.talentica.androidkotlin.db.dao;
-
-import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
-
-import com.talentica.androidkotlin.db.entity.ProductEntity;
-
-import java.util.List;
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.talentica.androidkotlin.db.entity.ProductEntity
 
 @Dao
-public interface ProductDao {
+interface ProductDao {
     @Query("SELECT * FROM products")
-    LiveData<List<ProductEntity>> loadAllProducts();
+    fun loadAllProducts(): LiveData<List<ProductEntity?>?>?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<ProductEntity> products);
+    fun insertAll(products: List<ProductEntity>?)
 
     @Query("select * from products where id = :productId")
-    LiveData<ProductEntity> loadProduct(int productId);
+    fun loadProduct(productId: Int): LiveData<ProductEntity?>?
 
     @Query("select * from products where id = :productId")
-    ProductEntity loadProductSync(int productId);
+    fun loadProductSync(productId: Int): ProductEntity?
 }

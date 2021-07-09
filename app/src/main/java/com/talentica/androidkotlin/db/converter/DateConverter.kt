@@ -13,14 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.talentica.androidkotlin.db.converter
 
-package com.talentica.androidkotlin.model;
+import androidx.room.TypeConverter
+import java.util.*
 
-import java.util.Date;
+object DateConverter {
+    @kotlin.jvm.JvmStatic
+    @TypeConverter
+    fun toDate(timestamp: Long?): Date? {
+        return if (timestamp == null) null else Date(timestamp)
+    }
 
-public interface Comment {
-    int getId();
-    int getProductId();
-    String getText();
-    Date getPostedAt();
+    @kotlin.jvm.JvmStatic
+    @TypeConverter
+    fun toTimestamp(date: Date?): Long? {
+        return date?.time
+    }
 }

@@ -13,28 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.talentica.androidkotlin.db.dao
 
-package com.talentica.androidkotlin.db.dao;
-
-
-import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
-
-import com.talentica.androidkotlin.db.entity.CommentEntity;
-
-import java.util.List;
+import androidx.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.talentica.androidkotlin.db.entity.CommentEntity
 
 @Dao
-public interface CommentDao {
+interface CommentDao {
     @Query("SELECT * FROM comments where productId = :productId")
-    LiveData<List<CommentEntity>> loadComments(int productId);
+    fun loadComments(productId: Int): LiveData<List<CommentEntity?>?>?
 
     @Query("SELECT * FROM comments where productId = :productId")
-    List<CommentEntity> loadCommentsSync(int productId);
+    fun loadCommentsSync(productId: Int): List<CommentEntity?>?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<CommentEntity> products);
+    fun insertAll(products: List<CommentEntity>?)
 }

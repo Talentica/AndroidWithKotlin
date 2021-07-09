@@ -13,16 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.talentica.androidkotlin.model
 
-package com.talentica.androidkotlin.ui;
-
-import androidx.databinding.BindingAdapter;
-import android.view.View;
-
-
-public class BindingAdapters {
-    @BindingAdapter("visibleGone")
-    public static void showHide(View view, boolean show) {
-        view.setVisibility(show ? View.VISIBLE : View.GONE);
-    }
+interface Product {
+    val id: Int
+    val name: String?
+    val description: String?
+    val price: Int
 }
